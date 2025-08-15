@@ -1,0 +1,68 @@
+version: 2
+
+models:
+  - name: mart_category_performance_summary
+    description: Summary of performance metrics by hotel category.
+    columns:
+      - name: hotel_category
+        description: Category of the hotel
+        tests:
+          - not_null
+      - name: total_revenue
+        description: Total revenue for the category
+      - name: occupancy_rate
+        description: Occupancy rate for the category
+
+  - name: mart_city_performance
+    description: Performance metrics aggregated at the city level.
+    columns:
+      - name: city
+        description: City of the hotels
+        tests:
+          - not_null
+      - name: total_revenue
+        description: Total revenue for the city
+      - name: occupancy_rate
+        description: Occupancy rate for the city
+
+  - name: mart_daily_performance
+    description: Combines daily occupancy and cancellation metrics by hotel category.
+    columns:
+      - name: check_in_date
+        description: Date of check-in
+        tests:
+          - not_null
+      - name: hotel_category
+        description: Category of the hotel
+        tests:
+          - not_null
+      - name: occupancy_rate
+        description: Percentage occupancy rate
+      - name: daily_cancellations
+        description: Number of cancellations on that date
+
+  - name: mart_monthly_revenue_trends
+    description: Shows monthly revenue generated vs revenue realized trends for all hotels.
+    columns:
+      - name: month_year
+        description: Month and year of the bookings
+        tests:
+          - not_null
+      - name: total_revenue_generated
+        description: Total revenue generated in the month
+      - name: total_revenue_realized
+        description: Total revenue realized in the month
+      - name: revenue_realization_rate
+        description: Percentage of generated revenue that was realized
+
+  - name: mart_platform_cancellation_rate
+    description: Platform-wise cancellation rates and their impact on revenue.
+    columns:
+      - name: platform
+        description: Booking platform name
+        tests:
+          - not_null
+      - name: cancellation_rate
+        description: Percentage of bookings cancelled
+      - name: lost_revenue
+        description: Total revenue lost due to cancellations

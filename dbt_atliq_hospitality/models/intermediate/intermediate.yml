@@ -1,0 +1,58 @@
+version: 2
+
+models:
+  - name: int_daily_occupancy_by_category
+    description: "Calculates daily occupancy rates across hotel categories by comparing bookings to room capacity."
+    columns:
+      - name: check_in_date
+        description: "Date for which occupancy is measured."
+        tests: [not_null]
+      - name: hotel_category
+        description: "Category of the hotel (e.g., Budget, Premium)."
+        tests: [not_null]
+      - name: occupancy_rate
+        description: "Ratio of successful bookings to total capacity."
+        tests: [not_null]
+
+  - name: int_unrealized_revenue_by_platform
+    description: "Compares generated vs realized revenue across booking platforms to track potential revenue leakage."
+    columns:
+      - name: check_in_date
+        description: "Date of check-in for the booking."
+        tests: [not_null]
+      - name: platform
+        description: "Booking platform used by the customer."
+        tests: [not_null]
+      - name: revenue_generated
+        description: "Total expected revenue from bookings."
+      - name: revenue_realized
+        description: "Total actual revenue collected."
+      - name: unrealized_loss
+        description: "Difference between generated and realized revenue."
+
+  - name: int_cancellation_behavior
+    description: "Analyzes cancellation patterns by hotel category, platform, and date to identify risk signals."
+    columns:
+      - name: check_in_date
+        description: "Planned arrival date for canceled bookings."
+        tests: [not_null]
+      - name: platform
+        description: "Platform through which the canceled booking was made."
+      - name: hotel_category
+        description: "Hotel category of the canceled booking."
+      - name: cancellations
+        description: "Number of canceled bookings."
+
+  - name: int_city_level_demand
+    description: "Tracks city-wise booking demand and occupancy to support expansion strategies and marketing targeting."
+    columns:
+      - name: check_in_date
+        description: "Date of stay."
+        tests: [not_null]
+      - name: city
+        description: "City where the hotel is located."
+        tests: [not_null]
+      - name: total_bookings
+        description: "Total number of successful bookings."
+      - name: occupancy_rate
+        description: "Ratio of successful bookings to available room capacity."

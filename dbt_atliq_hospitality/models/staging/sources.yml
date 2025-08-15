@@ -1,0 +1,69 @@
+version: 2
+
+sources:
+  - name: raw_zone
+    database: atliq_db
+    schema: raw_zone
+    quoting:
+      database: false
+      schema: false
+      identifier: true
+    tables:                       #specifying  columns in each table is options remember in all tables of this yml.
+      - name: DIM_HOTELS          #if you run without the columns names it also works
+        columns:
+          - name: property_id
+            quote: true
+            tests:
+              - not_null
+              - unique
+          - name: property_name
+            quote: true
+            tests:
+              - not_null
+      - name: DIM_DATE
+        columns:
+          - name: date
+            quote: true
+            tests:
+              - not_null
+              - unique
+          - name: month_year
+            quote: true
+          - name: week_no
+            quote: true
+          - name: day_type
+            quote: true
+      - name: DIM_ROOMS
+        columns:
+          - name: room_id
+            quote: true
+            tests:
+              - not_null
+              - unique
+          - name: room_class
+            quote: true
+            tests:
+              - not_null
+              - unique    
+      - name: FACT_AGGREGATED_BOOKINGS
+        columns:
+          - name: property_id
+            quote: true
+          - name: check_in_date
+            quote: true
+          - name: room_category
+            quote: true
+          - name: successful_bookings
+            quote: true
+          - name: capacity
+            quote: true
+
+      - name: FACT_BOOKINGS
+        columns:                                
+          - name: booking_id
+            quote: true
+            tests:
+              - not_null
+              - unique
+
+      

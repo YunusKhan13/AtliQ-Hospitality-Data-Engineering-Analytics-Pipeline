@@ -39,11 +39,15 @@ This project demonstrates an **end-to-end data engineering and analytics solutio
 
 ## 📂 Project Structure
 
-├── data/ # Raw CSV files
-├── data_ingestion/ # Python scripts to load into SQL Server & Snowflake
-├── dbt_atliq_hospitality/ # dbt project (staging, intermediate, marts)
-├── logs/ # Execution logs
-└── diagrams/ # Pipeline/architecture diagrams
+├── data/                     # Raw CSV files
+
+├── data_ingestion/            # Python scripts to load into SQL Server & Snowflake
+
+├── dbt_atliq_hospitality/     # dbt project (staging, intermediate, marts)
+
+├── logs/                      # Execution logs
+
+└── diagrams/                  # Pipeline/architecture diagrams 
 
 
 ---

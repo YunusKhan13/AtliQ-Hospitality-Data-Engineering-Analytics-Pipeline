@@ -61,9 +61,19 @@ The project uses a **multi-layered schema approach** inside Snowflake:
 - **analytics/marts** → final curated tables for BI consumption  
 
 ### 🔹 Schema Screenshots
-Here are sample screenshot of Snowflake objects after dbt transformations:
-![Snowflake Schema's](https://github.com/YunusKhan13/AtliQ-Hospitality-Data-Engineering-Analytics-Pipeline/blob/main/diagrams/Snowflake%20Schemas.png)
+Here is a screenshot of Snowflake objects after dbt transformations:  
+
+<img src="https://github.com/YunusKhan13/AtliQ-Hospitality-Data-Engineering-Analytics-Pipeline/blob/main/diagrams/Snowflake%20Schemas.png" alt="Snowflake Schemas" width="600"/>
+
 ---
+
+## 🔗 dbt Lineage Graph
+The following lineage graph shows how data flows from **Raw Zone → Staging → Intermediate → Marts** using dbt:  
+
+![dbt Lineage Graph](https://github.com/YunusKhan13/AtliQ-Hospitality-Data-Engineering-Analytics-Pipeline/blob/main/diagrams/Lineage%20graph.png)
+
+---
+
 
 ## 📊 Business Metrics & KPIs
 - **Revenue Analysis**  
